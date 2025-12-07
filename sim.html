@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>𝗦𝗜𝗠 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #000000;
+      color: #ff0000;
+      font-family: 'Courier New', monospace;
+    }
+    .main-container {
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid #ff0000;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    }
+    .search-btn {
+      background: #000000;
+      color: #ff0000;
+      border: 1px solid #ff0000;
+      transition: all 0.3s;
+    }
+    .search-btn:hover {
+      background: #ff0000;
+      color: #000000;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    }
+    .result-card {
+      background: rgba(20, 0, 0, 0.8);
+      border: 1px solid #ff0000;
+      transition: all 0.3s;
+    }
+    .result-card:hover {
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    }
+    .copy-btn {
+      background: #000000;
+      border: 1px solid #ff0000;
+      color: #ff0000;
+      transition: all 0.3s;
+    }
+    .copy-btn:hover {
+      background: #ff0000;
+      color: #000000;
+    }
+    .terminal-line {
+      font-family: 'Courier New', monospace;
+      color: #ff0000;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    input {
+      background: #000000;
+      border: 1px solid #ff0000;
+      color: #ff0000;
+    }
+    input::placeholder {
+      color: #660000;
+    }
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+    
+    /* 3D Rotating Image Styles */
+    .rotating-3d-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      transform-style: preserve-3d;
+      animation: rotate3d 10s infinite linear;
+      box-shadow: 
+        0 0 20px rgba(255, 0, 0, 0.5),
+        inset 0 0 20px rgba(255, 0, 0, 0.2);
+      border: 2px solid #ff0000;
+      object-fit: cover;
+    }
+    
+    @keyframes rotate3d {
+      0% {
+        transform: perspective(1000px) rotateY(0deg) rotateX(10deg);
+      }
+      100% {
+        transform: perspective(1000px) rotateY(360deg) rotateX(10deg);
+      }
+    }
+    
+    .image-container {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .image-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    /* Community Button Styles */
+    .community-btn {
+      background: #000000;
+      color: #ff0000;
+      border: 1px solid #ff0000;
+      transition: all 0.3s;
+    }
+    .community-btn:hover {
+      background: #ff0000;
+      color: #000000;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    }
+    
+    /* Channel Button Styles */
+    .channel-btn {
+      background: rgba(20, 0, 0, 0.8);
+      color: #ff0000;
+      border: 1px solid #ff0000;
+      transition: all 0.3s;
+      width: 100%;
+    }
+    .channel-btn:hover {
+      background: #ff0000;
+      color: #000000;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+  <div class="w-full max-w-2xl main-container rounded-xl p-6">
+    <div class="text-center mb-8">
+      <!-- 3D Rotating Image -->
+      <div class="flex justify-center mb-4">
+        <div class="image-container">
+          <img src="https://i.ibb.co/SD2FS48H/Screenshot-20251115-025110-Whats-App-Business.jpg" 
+               alt="SIM Database" 
+               class="rotating-3d-image">
+        </div>
+      </div>
+      
+      <h1 class="text-2xl md:text-3xl font-bold mb-2 text-red-600">𝗦𝗜𝗠 𝗗𝗔𝗧𝗘𝗕𝗔𝗦𝗘</h1>
+      <p class="text-red-800">𝗦𝗘𝗔𝗥𝗖𝗛 𝗙𝗢𝗥 𝗦𝗜𝗠 𝗖𝗔𝗥𝗗𝗦 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗧𝗜𝗢𝗡 𝗕𝗬 𝗣𝗛𝗢𝗡𝗘 𝗡𝗨𝗠𝗕𝗘𝗥</p>
+    </div>
+    
+    <div class="flex flex-col md:flex-row gap-3 mb-6">
+      <input id="phoneInput" type="text" placeholder="03XXXXXXXXX"
+        class="flex-1 px-4 py-3 rounded-lg text-red-600 focus:outline-none focus:ring-1 focus:ring-red-600">
+      <button id="searchBtn"
+        class="px-6 py-3 rounded-lg search-btn font-medium">
+        🔍 𝗦𝗘𝗔𝗥𝗖𝗛
+      </button>
+    </div>
+    
+    <p id="phoneError" class="text-red-600 font-medium mb-4 hidden text-center">𝗘𝗡𝗧𝗘𝗥 𝗔 𝗩𝗔𝗟𝗜𝗗 𝗡𝗨𝗠𝗕𝗘𝗥</p>
+    
+    <!-- Loading Area -->
+    <div id="loadingArea" class="hidden mt-6 p-4 bg-black rounded-lg border border-red-600">
+      <div class="text-center mb-2 text-red-600">
+        <svg class="inline-block w-6 h-6 animate-spin mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v4m0 12v4m8-10h-4M6 12H2m16.364-6.364l-2.828 2.828M7.464 17.536l-2.828 2.828M17.536 7.464l2.828 2.828M6.344 17.656l-2.828 2.828"></path>
+        </svg>
+        𝗦𝗘𝗔𝗥𝗖𝗛𝗜𝗡𝗚 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘....
+      </div>
+      <div id="terminalLoading" class="space-y-1"></div>
+    </div>
+    
+    <!-- Results Area -->
+    <div id="resultArea" class="space-y-4 mt-6"></div>
+    
+    <!-- Community Section -->
+    <div class="text-center mt-8">
+      <button id="communityBtn" class="community-btn px-6 py-3 rounded-lg font-medium mb-4">
+        👥 𝗝𝗢𝗜𝗡 𝗖𝗜𝗠𝗠𝗨𝗡𝗜𝗧𝗬
+      </button>
+      
+      <div id="communitySection" class="hidden space-y-4 mt-4">
+        <a href="https://whatsapp.com/channel/0029VbBGjOwHLHQS9vUIIl27" 
+           target="_blank" 
+           class="channel-btn px-6 py-3 rounded-lg font-medium block">
+          📢 𝗝𝗢𝗜𝗡 𝗢𝗙𝗙𝗜𝗖𝗜𝗔𝗟 𝗖𝗛𝗔𝗡𝗡𝗘𝗟
+        </a>
+        
+        <a href="https://chat.whatsapp.com/C9dOOvL1AL0A8cIrCYNIkN" 
+           target="_blank" 
+           class="channel-btn px-6 py-3 rounded-lg font-medium block">
+          👥 𝗝𝗢𝗜𝗡 𝗢𝗙𝗙𝗜𝗖𝗜𝗔𝗟 𝗚𝗥𝗢𝗨𝗣
+        </a>
+        
+        <a href="https://chat.whatsapp.com/KsvmFHk5kl44zTrRQ79HTR" 
+           target="_blank" 
+           class="channel-btn px-6 py-3 rounded-lg font-medium block">
+          💬 𝗝𝗢𝗜𝗡 𝗗𝗜𝗦𝗖𝗨𝗦𝗦𝗜𝗢𝗡 𝗚𝗥𝗢𝗨𝗣
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Terminal loading animation
+    const terminalLoading = document.getElementById('terminalLoading');
+    function terminalStyleLoading() {
+      terminalLoading.innerHTML = '';
+      let steps = [
+        '> Connecting to database server...',
+        '> Authenticating credentials...',
+        '> Querying phone records...',
+        '> Processing results...',
+        '> Preparing data for display...'
+      ];
+      
+      steps.forEach((step, index) => {
+        setTimeout(() => {
+          const line = document.createElement('div');
+          line.className = 'terminal-line';
+          line.textContent = step;
+          terminalLoading.appendChild(line);
+        }, index * 800);
+      });
+    }
+
+    // Search Logic
+    const searchBtn = document.getElementById("searchBtn");
+    const phoneInput = document.getElementById("phoneInput");
+    const phoneError = document.getElementById("phoneError");
+    const loadingArea = document.getElementById("loadingArea");
+    const resultArea = document.getElementById("resultArea");
+    
+    searchBtn.addEventListener("click", async () => {
+      const phone = phoneInput.value.trim();
+      if (!phone) {
+        phoneError.classList.remove("hidden");
+        return;
+      }
+      
+      phoneError.classList.add("hidden");
+      resultArea.innerHTML = "";
+      loadingArea.classList.remove("hidden");
+      terminalStyleLoading();
+      
+      let apiURL = "";
+      if (phone.startsWith("03")) {
+        apiURL = `https://legendxdata.site/Api/simdata.php?phone=92${phone.slice(1)}`;
+      } else if (phone.startsWith("7") || phone.startsWith("9")) {
+        apiURL = `https://legendxdata.site/ind.php?number=${phone}`;
+      } else {
+        resultArea.innerHTML = `<div class="p-4 bg-black border border-red-600 rounded-lg text-red-600 text-center">⚠️ Please enter a valid phone number format.</div>`;
+        loadingArea.classList.add("hidden");
+        return;
+      }
+      
+      try {
+        const proxyURL = `https://api.allorigins.win/get?url=${encodeURIComponent(apiURL)}`;
+        const response = await fetch(proxyURL);
+        const proxyData = await response.json();
+        const data = JSON.parse(proxyData.contents);
+        
+        loadingArea.classList.add("hidden");
+        
+        if (data.records && data.records.length > 0) {
+          data.records.forEach(record => {
+            const card = document.createElement("div");
+            card.className = "p-4 result-card rounded-lg";
+            card.innerHTML = `
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-red-600">
+                <div><span class="font-semibold">Name:</span> ${record.Name || "N/A"}</div>
+                <div><span class="font-semibold">Mobile:</span> ${record.Mobile || "N/A"}</div>
+                <div><span class="font-semibold">Country:</span> ${record.Country || "N/A"}</div>
+                <div><span class="font-semibold">CNIC:</span> ${record.CNIC || "N/A"}</div>
+                <div class="md:col-span-2"><span class="font-semibold">Address:</span> ${record.Address || "N/A"}</div>
+              </div>
+              <button onclick="copyDetails(this)" class="mt-3 px-4 py-2 copy-btn rounded transition">📋 Copy Details</button>
+            `;
+            resultArea.appendChild(card);
+          });
+        } else {
+          resultArea.innerHTML = `<div class="p-4 bg-black border border-red-600 rounded-lg text-red-600 text-center">❌ No records found for this number.</div>`;
+        }
+      } catch (error) {
+        console.error(error);
+        loadingArea.classList.add("hidden");
+        resultArea.innerHTML = `<div class="p-4 bg-black border border-red-600 rounded-lg text-red-600 text-center">⚠️ Error retrieving data. Please try again.</div>`;
+      }
+    });
+
+    // Allow searching with Enter key
+    phoneInput.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        searchBtn.click();
+      }
+    });
+
+    function copyDetails(btn) {
+      const card = btn.parentElement;
+      const text = card.querySelector('.grid').innerText;
+      navigator.clipboard.writeText(text);
+      
+      const originalText = btn.textContent;
+      btn.textContent = "✅ Copied!";
+      btn.style.background = "#ff0000";
+      btn.style.color = "#000000";
+      
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = "";
+        btn.style.color = "";
+      }, 2000);
+    }
+    
+    // Community Button Logic
+    const communityBtn = document.getElementById("communityBtn");
+    const communitySection = document.getElementById("communitySection");
+    
+    communityBtn.addEventListener("click", function() {
+      if (communitySection.classList.contains("hidden")) {
+        communitySection.classList.remove("hidden");
+        communityBtn.textContent = "👥 HIDE COMMUNITY";
+      } else {
+        communitySection.classList.add("hidden");
+        communityBtn.textContent = "👥 JOIN COMMUNITY";
+      }
+    });
+  </script>
+</body>
+</html>
